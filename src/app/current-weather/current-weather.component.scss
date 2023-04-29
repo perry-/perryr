@@ -1,0 +1,20 @@
+.perryr-current-weather {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: 30px 100px;
+    padding: 16px;
+    border: 2px solid lightgrey;
+    font-size: 21px;
+
+    &__header {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        grid-column: 1 / 5;
+    }
+
+    &__icon {
+        height: 100px;
+        width: 100px;
+    }
+}
