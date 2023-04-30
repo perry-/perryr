@@ -1,0 +1,51 @@
+<div class="perryr-forecast-list">
+    <div class="perryr-forecast-list__heading">
+        <span aria-hidden="true">Dato</span>
+        <span aria-hidden="true">Natt</span>
+        <span aria-hidden="true" class="perryr-forecast-list__morning-heading">Morgen</span>
+        <span aria-hidden="true" class="perryr-forecast-list__day-heading">Dag</span>
+        <span aria-hidden="true" class="perryr-forecast-list__afternoon-heading">Ettermiddag</span>
+        <span aria-hidden="true">Kveld</span>
+        <span class="perryr-forecast-list__details-heading">
+            <span aria-hidden="true">Temperatur</span>
+            <span aria-hidden="true">Nedbør</span>
+            <span aria-hidden="true">Vind</span>
+        </span>
+    </div>
+    <ul class="perryr-forecast-list__days">
+        <li class="perryr-forecast-day" *ngFor="let day of ($forecastDays | async)">
+            <span class="perryr-forecast-day__date">{{day.date}}</span>
+            <img 
+                class="perryr-forecast-day__symbol-night"
+                [class.perryr-forecast-day__symbol--hidden]="!day.symbol_night_code"
+                [ariaHidden]="!day.symbol_night_code"
+                [src]="'/assets/weathericons/' + day.symbol_night_code + '.svg'"
+                [alt]="day.symbol_night_desc"
+            />
+            <img
+                class="perryr-forecast-day__symbol-morning"
+                [class.perryr-forecast-day__symbol--hidden]="!day.symbol_morning_code"
+                [ariaHidden]="!day.symbol_morning_code"
+                [src]="'/assets/weathericons/' + day.symbol_morning_code + '.svg'"
+                [alt]="day.symbol_morning_desc"
+            />
+            <img 
+                class="perryr-forecast-day__symbol-afternoon"
+                [class.perryr-forecast-day__symbol--hidden]="!day.symbol_afternoon_code"
+                [ariaHidden]="!day.symbol_afternoon_code"
+                [src]="'/assets/weathericons/' + day.symbol_afternoon_code + '.svg'"
+                [alt]="day.symbol_afternoon_desc"
+            />
+            <img
+                class="perryr-forecast-day__symbol-evening"
+                [class.perryr-forecast-day__symbol--hidden]="!day.symbol_evening_code"
+                [ariaHidden]="!day.symbol_evening_code"
+                [src]="'/assets/weathericons/' + day.symbol_evening_code + '.svg'"
+                [alt]="day.symbol_evening_desc"
+            />
+            <span class="perryr-forecast-day__symbol-temperature"></span>
+            <span class="perryr-forecast-day__symbol-precipitation"></span>
+            <span class="perryr-forecast-day__symbol-wind"></span>
+        </li>
+    </ul>
+</div>

@@ -7,6 +7,7 @@ import { WeatherService } from './weather.service';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { PrecipitationStatusComponent } from './precipitation-status/precipitation-status.component';
 import { ForecastListComponent } from './forecast-list/forecast-list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ForecastListComponent } from './forecast-list/forecast-list.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

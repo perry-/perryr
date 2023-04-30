@@ -13,6 +13,24 @@ export interface TimeSeriesEntry {
             summary: {
                 symbol_code: string
             }
+        },
+        next_6_hours: {
+            details: {
+                precipitation_amount: number
+            },
+            summary: {
+                symbol_code: string
+            }
+        },
+        next_12_hours: {
+            details: {
+                precipitation_amount: number,
+                precipitation_amount_max: number,
+                precipitation_amount_min: number,
+            },
+            summary: {
+                symbol_code: string
+            }
         }
     }
 }
