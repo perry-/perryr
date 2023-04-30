@@ -1,27 +1,90 @@
-.perryr-forecast-list__days {
-    list-style: none;
-    padding: 0;
-}
+.perryr-forecast-list {
+    padding: 8px;
 
-.perryr-forecast-day, .perryr-forecast-list__heading {
-    display: grid;
-    grid-template-columns: auto repeat(8, 50px);
-}
+    &__heading {
+        padding: 0 8px;
+    }
+    
+    &__days {
+        list-style: none;
+        padding: 0;
+    }
 
-.perryr-forecast-day {
-    display: grid;
-    grid-template-columns: auto repeat(8, 50px);
-
-    &__symbol--hidden {
-        visibility: hidden;
+    &__morning-heading,
+    &__afternoon-heading,
+    &__details-heading {
+        display: none;
     }
 }
 
 .perryr-forecast-list__day-heading {
     grid-column: 3/5;
+    justify-self: center;
 }
 
-.perryr-forecast-list__morning-heading,
-.perryr-forecast-list__afternoon-heading {
-    display: none;
+.perryr-forecast-day, .perryr-forecast-list__heading {
+    display: grid;
+    grid-template-columns: 100px repeat(4, 50px);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 8px;
+}
+
+.perryr-forecast-day {
+    background-color: white;
+    border: 2px solid lightgrey;
+    padding: 8px;
+    align-items: center;
+
+    &__details {
+        grid-row: 2/3;
+        > * + * {
+            margin-left: 1ch;
+        }
+    }
+
+    &__symbol--hidden {
+        visibility: hidden;
+    }
+
+    & + .perryr-forecast-day {
+        margin-top: 8px;
+    }
+}
+
+@media (min-width: 700px) {
+
+}
+
+@media (min-width: 900px) {
+    .perryr-forecast-list {
+        &__day-heading {
+            display: none;
+        }
+
+        &__morning-heading,
+        &__afternoon-heading,
+        &__details-heading {
+            display: inline;
+        }
+    }
+
+
+    .perryr-forecast-day, .perryr-forecast-list__heading {
+        display: grid;
+        grid-template-columns: 100px repeat(4, 100px) auto;
+    }
+
+    .perryr-forecast-list__details-heading {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 200px));
+    }
+
+    .perryr-forecast-day {
+        &__details {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 200px));
+            grid-row: 1;
+            grid-column: 6;
+        }
+    }
 }

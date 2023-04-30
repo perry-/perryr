@@ -2,9 +2,11 @@
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-template-rows: 30px 100px;
-    padding: 16px;
+    padding: 8px;
     border: 2px solid lightgrey;
     font-size: 21px;
+    background-color: white;
+    width: 500px;
 
     &__header {
         margin: 0;
