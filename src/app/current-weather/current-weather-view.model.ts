@@ -3,5 +3,6 @@ export interface CurrentWeatherViewModel {
     symbol_desc: string,
     air_temperature: number,
     precipitation_rate: number,
-    wind_speed: number
+    wind_speed: number,
+    is_warm: boolean
 }

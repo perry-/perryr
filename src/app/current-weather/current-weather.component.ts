@@ -29,7 +29,8 @@ export class CurrentWeatherComponent {
         symbol_desc: WeatherIconLegends.get(symbol_code.split('_')[0]),
         air_temperature,
         precipitation_rate,
-        wind_speed
+        wind_speed,
+        is_warm: air_temperature >= 0
       } as CurrentWeatherViewModel
     })
   );

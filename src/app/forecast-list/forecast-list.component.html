@@ -52,9 +52,42 @@
                 [alt]="day.symbol_evening_desc"
             />
             <span class="perryr-forecast-day__details">
-                <span class="perryr-forecast-day__symbol-temperature">1</span>
-                <span class="perryr-forecast-day__symbol-precipitation">2</span>
-                <span class="perryr-forecast-day__symbol-wind">3</span>
+                <span class="perryr-forecast-day__symbol-temperature">
+                    <span class="perryr--visually-hidden">Maksimum/minimum temperatur: </span>
+                    {{day.min_temp}}
+                    <span
+                        *ngIf="day.min_temp !== null"
+                        title="grader celsius"
+                        aria-label="grader celsius"
+                    >°C</span>
+                    <span *ngIf="day.max_temp"> / </span>
+                    {{day.max_temp}}
+                    <span
+                        *ngIf="day.max_temp !== null"
+                        title="grader celsius"
+                        aria-label="grader celsius"
+                    >°C</span>
+                </span>
+                <span class="perryr-forecast-day__symbol-precipitation">
+                    <span class="perryr--visually-hidden">Maksimum/minimum nedbør: </span>
+                    {{day.min_precipitation}}
+                    <span
+                        *ngIf="day.min_precipitation !== null"
+                        title="millimeter nedbør"
+                        aria-label="millimeter nedbør"
+                    >mm</span>
+                    <span *ngIf="day.max_precipitation"> / </span>
+                    {{day.max_precipitation}}
+                    <span
+                        *ngIf="day.max_precipitation !== null"
+                        title="millimeter nedbør"
+                        aria-label="millimeter nedbør"
+                    >mm</span>
+                </span>
+                <span class="perryr-forecast-day__symbol-wind">
+                    <span class="perryr--visually-hidden">Vind: </span>
+                    {{day.wind}}
+                </span>
             </span>
         </li>
     </ul>

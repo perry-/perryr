@@ -8,7 +8,9 @@ export interface ForecastDay {
     symbol_afternoon_desc: string,
     symbol_evening_code: string,
     symbol_evening_desc: string,
-    temperature: string,
-    precipitation: string,
+    max_temp: number,
+    min_temp: number,
+    max_precipitation: number,
+    min_precipitation: number,
     wind: string,
 }

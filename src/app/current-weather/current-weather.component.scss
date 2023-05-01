@@ -19,4 +19,24 @@
         height: 100px;
         width: 100px;
     }
+
+    &__temp-value {
+        font-size: 56px;
+
+        &--warm{
+            color: #c60000;
+        }
+
+        &--cold{
+            color: #006edb;
+        }
+    }
+
+    &__precipitation-value {
+        font-size: 30px;
+    }
+
+    &__wind-value {
+        font-size: 30px;
+    }
 }

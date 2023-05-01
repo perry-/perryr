@@ -8,7 +8,9 @@ export interface TimeSeriesEntry {
         },
         next_1_hours: {
             details: {
-                precipitation_amount: number
+                precipitation_amount: number,
+                precipitation_amount_max: number,
+                precipitation_amount_min: number,
             },
             summary: {
                 symbol_code: string
@@ -16,7 +18,11 @@ export interface TimeSeriesEntry {
         },
         next_6_hours: {
             details: {
-                precipitation_amount: number
+                precipitation_amount: number,
+                precipitation_amount_max: number,
+                precipitation_amount_min: number,
+                air_temperature_max: number,
+                air_temperature_min: number
             },
             summary: {
                 symbol_code: string

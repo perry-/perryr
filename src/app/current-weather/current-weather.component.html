@@ -1,7 +1,46 @@
 <div class="perryr-current-weather">
     <h2 class="perryr-current-weather__header">Været nå</h2>
-    <img class="perryr-current-weather__icon" [src]="'/assets/weathericons/'+ ($currentWeather | async)?.symbol_code + '.svg'" [alt]="($currentWeather | async)?.symbol_desc"/>
-    <div class="perryr-current-weather__temp">{{($currentWeather | async )?.air_temperature}}<span title="grader celsius" aria-label="grader celsius">°C</span></div>
-    <div class="perryr-current-weather__precipitation">{{($currentWeather | async )?.precipitation_rate}}<span title="millimeter nedbør" aria-label="millimeter nedbør">mm</span></div>
-    <div class="perryr-current-weather__wind">{{($currentWeather | async )?.wind_speed}} m/s</div>
+    <img
+        class="perryr-current-weather__icon"
+        [src]="'/assets/weathericons/'+ ($currentWeather | async)?.symbol_code + '.svg'"
+        [alt]="($currentWeather | async)?.symbol_desc"
+    />
+    <div
+        class="perryr-current-weather__temp"
+    >
+        <span
+            class="perryr-current-weather__temp-value"
+            [class.perryr-current-weather__temp-value--warm]="($currentWeather | async )?.is_warm"
+            [class.perryr-current-weather__temp-value--cold]="!($currentWeather | async )?.is_warm"
+        >
+            {{($currentWeather | async )?.air_temperature}}
+        </span>
+        <span
+            title="grader celsius"
+            aria-label="grader celsius"
+        >
+            °C
+        </span>
+    </div>
+    <div
+        class="perryr-current-weather__precipitation"
+    >
+        <span class="perryr-current-weather__precipitation-value">
+            {{($currentWeather | async )?.precipitation_rate}}
+        </span>
+        <span
+            title="millimeter nedbør"
+            aria-label="millimeter nedbør"
+        >
+            mm
+        </span>
+    </div>
+    <div
+        class="perryr-current-weather__wind"
+    >
+        <span class="perryr-current-weather__wind-value">
+            {{($currentWeather | async )?.wind_speed}}
+        </span>
+        m/s
+    </div>
 </div>

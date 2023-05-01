@@ -33,8 +33,31 @@ export class ForecastListComponent {
       const days: ForecastDay[] = [];
 
       timeseries.forEach(day => {
-        const max_temp: number = 0; //Math.max(day[0].data.next_12_hours?.details?.precipitation_amount_max, day[3].data.next_12_hours?.details?.precipitation_amount_max);
-        const min_temp: number = 0; //Math.min(day[0].data.next_12_hours?.details?.precipitation_amount_min, day[3].data.next_12_hours?.details?.precipitation_amount_min)
+        const max_precipitation: number = Math.max(
+          day[0]?.data.next_6_hours?.details?.precipitation_amount_max,
+          day[1]?.data.next_6_hours?.details?.precipitation_amount_max,
+          day[2]?.data.next_6_hours?.details?.precipitation_amount_max,
+          day[3]?.data.next_6_hours?.details?.precipitation_amount_max
+        );
+        const min_precipitation: number = Math.min(
+          day[0]?.data.next_6_hours?.details?.precipitation_amount_min,
+          day[1]?.data.next_6_hours?.details?.precipitation_amount_min,
+          day[2]?.data.next_6_hours?.details?.precipitation_amount_min,
+          day[3]?.data.next_6_hours?.details?.precipitation_amount_min
+        );
+
+        const max_temp: number = Math.max(
+          day[0]?.data.next_6_hours?.details?.air_temperature_max,
+          day[1]?.data.next_6_hours?.details?.air_temperature_max,
+          day[2]?.data.next_6_hours?.details?.air_temperature_max,
+          day[3]?.data.next_6_hours?.details?.air_temperature_max
+        );
+        const min_temp: number = Math.min(
+          day[0]?.data.next_6_hours?.details?.air_temperature_min,
+          day[1]?.data.next_6_hours?.details?.air_temperature_min,
+          day[2]?.data.next_6_hours?.details?.air_temperature_min,
+          day[3]?.data.next_6_hours?.details?.air_temperature_min
+        )
 
         days.push({
           date: new Date(day[0]?.time || day[1]?.time || day[2]?.time || day[3]?.time).toLocaleDateString(),
@@ -46,8 +69,10 @@ export class ForecastListComponent {
           symbol_afternoon_desc: WeatherIconLegends.get(day[2]?.data?.next_6_hours?.summary.symbol_code.split('_')[0]),
           symbol_evening_code: day[3]?.data?.next_6_hours?.summary.symbol_code,
           symbol_evening_desc: WeatherIconLegends.get(day[3]?.data?.next_6_hours?.summary.symbol_code.split('_')[0]),
-          temperature: max_temp + '/' + min_temp,
-          precipitation: "",
+          min_temp: min_temp ? Math.round(min_temp) : null,
+          max_temp: max_temp ? Math.round(max_temp) : null,
+          min_precipitation: min_precipitation || null,
+          max_precipitation: max_precipitation || null,
           wind: "",
         } as ForecastDay)
       });

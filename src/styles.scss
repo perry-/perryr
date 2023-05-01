@@ -1,3 +1,11 @@
 body {
     margin: 0;
 }
+
+.perryr--visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+}
